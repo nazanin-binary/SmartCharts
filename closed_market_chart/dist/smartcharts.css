@@ -230,15 +230,20 @@ html,body{-ms-touch-action:none;margin:0px}
 .stx-chart-panel.stx-show{display:none}
 .ciq-chart.ciq-screenshot .cq-menu-dropdown{display:none !important}
 .ps--active-x>.ps__rail-x,.ps--active-y>.ps__rail-y{background-color:transparent !important}
-.cq-spot{width:6px;height:6px;padding:0px;line-height:1px;border-radius:100%;cursor:pointer;position:absolute;background:transparent;-webkit-animation:pulse 1.6s infinite;animation:pulse 1.6s infinite;margin-left:-3px;margin-top:-3px;box-shadow:0 0 0 rgba(255,153,51,0.6)}
-.cq-spot:before{content:'\25CF';font-size:18px;color:#f93;position:relative;left:-2.3px;line-height:5px}
+.cq-spot{width:6px;height:6px;padding:0px;line-height:1px;border-radius:100%;cursor:pointer;position:absolute;background:transparent;-webkit-animation:pulse 1.6s infinite;animation:pulse 1.6s infinite;margin-left:-3px;margin-top:-3px;box-shadow:0 0 0 rgba(42,48,82,0.6)}
+.cq-spot:before{content:'\25CF';font-size:18px;position:relative;left:-2.3px;line-height:5px}
+.smartcharts-light .cq-spot:before{color:#f93}
+.smartcharts-dark .cq-spot:before{color:#f93}
 .cq-spot.cq-endpoint{position:absolute;text-align:center;width:1px;height:100%;line-height:20px;color:#ffffff;bottom:0px !important;top:0px !important;-webkit-animation:none;animation:none}
-.smartcharts-light .cq-spot.cq-endpoint{border-left:2px dashed #f93}
-.smartcharts-dark .cq-spot.cq-endpoint{border-left:2px dashed #f93}
+.smartcharts-light .cq-spot.cq-endpoint{border-left:2px dashed #39b19d}
+.smartcharts-dark .cq-spot.cq-endpoint{border-left:2px dashed #39b19d}
 .cq-spot.cq-endpoint:before{content:'\25CF';font-size:18px;color:#0298d3;position:relative;left:-2.3px;line-height:5px;display:none}
 .cq-spot.cq-endpoint .cq-endpoint-label{width:145px;padding:1px 9px;border-radius:4px;position:absolute;top:calc(100% - 22px);-webkit-transform:translateX(-50%);transform:translateX(-50%)}
 .smartcharts-light .cq-spot.cq-endpoint .cq-endpoint-label{background-color:#f93;color:#fff}
-.smartcharts-dark .cq-spot.cq-endpoint .cq-endpoint-label{background-color:#f93;color:#2a3052}
+.smartcharts-dark .cq-spot.cq-endpoint .cq-endpoint-label{background-color:#f93;color:#fff}
+.closed-chart .cq-spot{-webkit-animation:none;animation:none}
+.smartcharts-light .closed-chart .cq-spot:before{color:#d6d6d6}
+.smartcharts-dark .closed-chart .cq-spot:before{color:#303342}
 @-webkit-keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,153,51,0.6)}70%{box-shadow:0 0 0 10px rgba(255,153,51,0)}100%{box-shadow:0 0 0 0 rgba(255,153,51,0)}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,153,51,0.6)}70%{box-shadow:0 0 0 10px rgba(255,153,51,0)}100%{box-shadow:0 0 0 0 rgba(255,153,51,0)}}
 .smartcharts-mobile .mSticky{background:none}
