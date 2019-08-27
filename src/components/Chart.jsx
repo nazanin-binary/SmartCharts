@@ -28,6 +28,28 @@ class Chart extends Component {
         super(props);
         this.modalNode = React.createRef();
         this.root = React.createRef();
+        this.changables = [
+            'chartContainerHeight',
+            'chartType',
+            'containerWidth',
+            'endEpoch',
+            'granularity',
+            'id',
+            'isCandle',
+            'isChartAvailable',
+            'isChartClosed',
+            'isConnectionOpened',
+            'isDrawing',
+            'isHighestLowestMarkerEnabled',
+            'isMobile',
+            'isSpline',
+            'position',
+            'settings',
+            'shouldFetchTradingTimes',
+            'showLastDigitStats',
+            'symbol',
+            'theme',
+        ];
     }
 
     componentDidMount() {
@@ -36,11 +58,20 @@ class Chart extends Component {
         logPageView();
         updateProps(props);
         init(this.root.current, this.modalNode.current, props);
+        console.log(props);
     }
 
-    componentWillReceiveProps(nextProps) {
-        const { updateProps, ...props } = nextProps;
-        updateProps(props);
+    componentDidUpdate(prevProps) {
+        const { updateProps, ...props } = this.props;
+        let changing = false;
+        this.changables.find((changableItem) => {
+            if (prevProps[changableItem] !== props[changableItem]) {
+                changing = true;
+            }
+        });
+        if (changing) {
+            updateProps(props);
+        }
     }
 
     componentWillUnmount() {

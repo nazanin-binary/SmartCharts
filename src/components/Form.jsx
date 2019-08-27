@@ -195,7 +195,7 @@ export const Switch = ({
 );
 
 // NumericInput fires onChange on Enter or onBlur
-export class NumericInput extends React.Component {
+export class NumericInput extends React.PureComponent {
     constructor(props) {
         super(props);
 
