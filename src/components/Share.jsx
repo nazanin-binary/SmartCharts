@@ -8,7 +8,7 @@ import {
 import '../../sass/components/_ciq-download.scss';
 
 
-const Share = ({
+const Share = React.memo(({
     ShareMenu,
     menuOpen,
     downloadCSV,
@@ -53,7 +53,7 @@ const Share = ({
             </div>
         </ShareMenu.Body>
     </ShareMenu>
-);
+));
 
 export default connect(({ share: d }) => ({
     ShareMenu: d.ShareMenu,

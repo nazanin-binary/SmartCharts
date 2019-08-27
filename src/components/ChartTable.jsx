@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Scrollbars } from 'tt-react-custom-scrollbars';
 import { CloseBoldIcon, ItemIconMap, SymbolPlaceholderIcon } from './Icons.jsx';
 import { connect } from '../store/Connect';
 import '../../sass/components/_ciq-chart-table.scss';
 
-const ChartTableGroupContent = ({ item, isTick }) => (
+const ChartTableGroupContent = React.memo(({ item, isTick }) => (
     <table className={`ciq-chart-table ${isTick ? 'ciq-chart-table--tick' : ''}`}>
         <tbody>
             {item.datas.map((data, idy) => (
@@ -33,10 +33,10 @@ const ChartTableGroupContent = ({ item, isTick }) => (
             ))}
         </tbody>
     </table>
-);
+));
 
 
-class ChartTableGroup extends Component {
+class ChartTableGroup extends PureComponent {
     componentWillReceiveProps(nextProps) {
         const { scrollPanel } = nextProps;
         if (scrollPanel && scrollPanel.container && !this.scrollPanelTop) this.scrollPanelTop = scrollPanel.container.getBoundingClientRect().top;
@@ -82,7 +82,7 @@ class ChartTableGroup extends Component {
 }
 
 
-const ChartTable = ({
+const ChartTable = React.memo(({
     isMobile,
     tableData,
     Dialog,
@@ -198,7 +198,7 @@ const ChartTable = ({
             </Dialog>
         </div>
     );
-};
+});
 
 export default connect(({  chart, chartTable }) => ({
     isMobile: chart.isMobile,

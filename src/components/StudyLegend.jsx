@@ -3,7 +3,7 @@ import NotificationBadge from './NotificationBadge.jsx';
 import { connect } from '../store/Connect';
 import { IndicatorIcon } from './Icons.jsx';
 
-const StudyLegend = ({
+const StudyLegend = React.memo(({
     isOpened,
     setOpen,
     StudyMenu,
@@ -35,7 +35,7 @@ const StudyLegend = ({
             />
         </StudyMenu.Body>
     </StudyMenu>
-);
+));
 
 export default connect(({ studies: st, chart }) => ({
     isOpened: st.open,

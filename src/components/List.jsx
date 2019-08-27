@@ -2,7 +2,7 @@ import React from 'react';
 import Scrollbars from 'tt-react-custom-scrollbars';
 import '../../sass/components/_ciq-list.scss';
 
-const List = ({
+const List = React.memo(({
     height,
     items,
     onItemClick,
@@ -30,6 +30,6 @@ const List = ({
             ))}
         </Scrollbars>
     );
-};
+});
 
 export default List;

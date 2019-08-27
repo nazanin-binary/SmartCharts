@@ -4,20 +4,20 @@ import {
 } from '../Icons.jsx';
 import Favorite from '../Favorite.jsx';
 
-const Icon = ({ id }) => {
+const Icon = React.memo(({ id }) => {
     if (!id || !ItemIconMap[id]) { return ''; }
     const ItemIcon = ItemIconMap[id];
     return <ItemIcon className={`ic-${id}`} />;
-};
+});
 
-const ItemLeft = ({ item: { itemId, display } }) => (
+const ItemLeft = React.memo(({ item: { itemId, display } }) => (
     <div className="left">
         <Icon id={itemId} />
         <span className="ciq-item-display">{display}</span>
     </div>
-);
+));
 
-const ItemRight = ({ favoritesId, item: { dataObject, itemId } }) => (
+const ItemRight = React.memo(({ favoritesId, item: { dataObject, itemId } }) => (
     <div className="right">
         {(dataObject && (dataObject.exchange_is_open === undefined || dataObject.exchange_is_open)) ? '' : <span className="closed-market">{t.translate('CLOSED')}</span>}
         <Favorite
@@ -25,9 +25,9 @@ const ItemRight = ({ favoritesId, item: { dataObject, itemId } }) => (
             id={itemId}
         />
     </div>
-);
+));
 
-const ActiveOption = ({ opt, item }) => {
+const ActiveOption = React.memo(({ opt, item }) => {
     const ActiveOptionIcon = ActiveOptionsIconMap[opt.id];
     return (
         <span
@@ -38,9 +38,9 @@ const ActiveOption = ({ opt, item }) => {
             {opt.renderChild && opt.renderChild(item)}
         </span>
     );
-};
+});
 
-const ActiveOptions = ({ activeOptions, item }) => (
+const ActiveOptions = React.memo(({ activeOptions, item }) => (
     activeOptions && (
         <span className="cq-active-options">
             {activeOptions.map(opt => (
@@ -48,9 +48,9 @@ const ActiveOptions = ({ activeOptions, item }) => (
             ))}
         </span>
     )
-);
+));
 
-export const NormalItem = ({ onSelectItem, item, disableAll, favoritesId, id }) => {
+export const NormalItem = React.memo(({ onSelectItem, item, disableAll, favoritesId, id }) => {
     const itemClass = id ? `${id}-subcategory-item-${item.itemId}` : `subcategory-item-${item.itemId}`;
 
     return (
@@ -63,9 +63,9 @@ export const NormalItem = ({ onSelectItem, item, disableAll, favoritesId, id }) 
             <ItemRight item={item} favoritesId={favoritesId} />
         </div>
     );
-};
+});
 
-export const ActiveItem = ({ item, favoritesId, activeOptions }) => (
+export const ActiveItem = React.memo(({ item, favoritesId, activeOptions }) => (
     <div
         className="cq-active-item"
     >
@@ -78,4 +78,4 @@ export const ActiveItem = ({ item, favoritesId, activeOptions }) => (
             />
         </div>
     </div>
-);
+));

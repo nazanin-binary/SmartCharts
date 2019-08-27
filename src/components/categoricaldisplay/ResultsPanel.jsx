@@ -22,7 +22,7 @@ const CategoryTitleClassName = (categoryId, activeHeadKey, activeHeadTop, catego
     return `category-title ${TitleClassName} ${categorySubtitle ? 'has-subtitle' : ''}`;
 };
 
-const Category = ({ category, Item, setCategoryElement, onSelectItem, activeHeadKey, activeHeadTop, activeHeadOffset, disableAll }) => (
+const Category = React.memo(({ category, Item, setCategoryElement, onSelectItem, activeHeadKey, activeHeadTop, activeHeadOffset, disableAll }) => (
     <div
         className={`category category-${category.categoryId} ${category.categorySubtitle ? 'category-has-subtitle' : ''}`}
         ref={el => setCategoryElement(el, category.categoryId)}
@@ -84,9 +84,9 @@ const Category = ({ category, Item, setCategoryElement, onSelectItem, activeHead
             </div>
         )}
     </div>
-);
+));
 
-export const ResultsPanel = ({ filteredItems, onSelectItem, getItemType, setCategoryElement, activeHeadKey, activeHeadTop, activeHeadOffset, disableAll }) => (
+export const ResultsPanel = React.memo(({ filteredItems, onSelectItem, getItemType, setCategoryElement, activeHeadKey, activeHeadTop, activeHeadOffset, disableAll }) => (
     <div className="results-panel">
         { filteredItems.map(category => (getItemCount(category) > 0 || category.emptyDescription) && (
             <Category
@@ -102,4 +102,4 @@ export const ResultsPanel = ({ filteredItems, onSelectItem, getItemType, setCate
             />
         )) }
     </div>
-);
+));

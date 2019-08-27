@@ -13,7 +13,7 @@ import {
 } from './Icons.jsx';
 import '../../sass/components/_ciq-chart-setting.scss';
 
-const AssetInformationToggle = ({
+const AssetInformationToggle = React.memo(({
     value,
     onChange,
 }) => (
@@ -26,9 +26,9 @@ const AssetInformationToggle = ({
             />
         </div>
     </div>
-);
+));
 
-const ThemeToggle = ({
+const ThemeToggle = React.memo(({
     position,
     setPosition,
 }) => (
@@ -45,9 +45,9 @@ const ThemeToggle = ({
             />
         </div>
     </div>
-);
+));
 
-const ChartSetting = ({
+const ChartSetting = React.memo(({
     assetInformation,
     ChartSettingMenu,
     closeMenu,
@@ -196,7 +196,7 @@ const ChartSetting = ({
             </ChartSettingMenu.Body>
         </ChartSettingMenu>
     );
-};
+});
 
 export default connect(({ chartSetting: s, chart: c }) => ({
     assetInformation            : s.assetInformation,

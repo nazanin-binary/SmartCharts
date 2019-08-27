@@ -3,7 +3,7 @@ import {
     CategoryIconMap,
 } from '../Icons.jsx';
 
-const Filter = ({ focusedCategoryKey, activeCategoryKey, handleFilterClick, category, isMobile }) => {
+const Filter = React.memo(({ focusedCategoryKey, activeCategoryKey, handleFilterClick, category, isMobile }) => {
     const CategoryIcon = CategoryIconMap[category.categoryId];
     const isActive = focusedCategoryKey && focusedCategoryKey.length ? focusedCategoryKey === category.categoryId : activeCategoryKey === category.categoryId;
     return (
@@ -15,9 +15,9 @@ const Filter = ({ focusedCategoryKey, activeCategoryKey, handleFilterClick, cate
             <span className="cq-filter-text">{t.translate(category.categoryName)}</span>
         </div>
     );
-};
+});
 
-export const FilterPanel = ({ filteredItems, handleFilterClick, focusedCategoryKey, activeCategoryKey, isMobile }) => (
+export const FilterPanel = React.memo(({ filteredItems, handleFilterClick, focusedCategoryKey, activeCategoryKey, isMobile }) => (
     <div className="cq-filter-panel">
         { filteredItems.map(category => (
             <Filter
@@ -30,4 +30,4 @@ export const FilterPanel = ({ filteredItems, handleFilterClick, focusedCategoryK
             />
         ))}
     </div>
-);
+));

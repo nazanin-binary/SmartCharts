@@ -4,7 +4,7 @@ import { connect } from '../store/Connect';
 import { DrawIcon, ClearIcon, MeasureIcon } from './Icons.jsx';
 import '../../sass/components/_draw-tools.scss';
 
-const DrawTools = ({
+const DrawTools = React.memo(({
     clearAll,
     selectTool,
     DrawToolsMenu,
@@ -57,7 +57,7 @@ const DrawTools = ({
             </div>
         </DrawToolsMenu.Body>
     </DrawToolsMenu>
-);
+));
 
 export default connect(({ drawTools: dt }) => ({
     clearAll: dt.clearAll,

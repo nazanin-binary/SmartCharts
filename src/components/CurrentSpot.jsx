@@ -1,7 +1,7 @@
 import React from 'react';
 
-const CurrentSpot = () => (
+const CurrentSpot = React.memo(() => (
     <span className="cq-spot" />
-);
+));
 
 export default CurrentSpot;

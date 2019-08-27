@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../sass/components/_ciq-asset-information.scss';
 
-const AssetInformation = () => (
+const AssetInformation = React.memo(() => (
     <div className="ciq-asset-information" style={{ visibility: 'hidden' }}>
         <div>
             <div>{ t.translate('SPOT') }:</div>
@@ -25,6 +25,6 @@ const AssetInformation = () => (
         </div>
     </div>
 
-);
+));
 
 export default AssetInformation;

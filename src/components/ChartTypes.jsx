@@ -4,7 +4,7 @@ import { connect } from '../store/Connect';
 import { SettingIcon } from './Icons.jsx';
 import '../../sass/components/_chart-types.scss';
 
-const ChartTypes = ({
+const ChartTypes = React.memo(({
     chartId,
     ChartTypeList,
     ChartTypeMenu,
@@ -67,7 +67,7 @@ const ChartTypes = ({
             </ChartTypeMenu.Body>
         </ChartTypeMenu>
     );
-};
+});
 
 export default connect(({ chartType, state }) => ({
     chartId            : state.chartId,

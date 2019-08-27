@@ -182,7 +182,7 @@ export class ColorPicker extends React.Component {
     }
 }
 
-export const Switch = ({
+export const Switch = React.memo(({
     value,
     onChange,
 }) => (
@@ -192,7 +192,7 @@ export const Switch = ({
     >
         <div className="handle" />
     </div>
-);
+));
 
 // NumericInput fires onChange on Enter or onBlur
 export class NumericInput extends React.Component {

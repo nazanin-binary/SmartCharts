@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from '../store/Connect';
 import '../../sass/components/_chart-title.scss';
 
-const ChartTitle = ({
+const ChartTitle = React.memo(({
     chartId,
     ChartTitleMenu,
     currentSymbol,
@@ -39,7 +39,7 @@ const ChartTitle = ({
             </ChartTitleMenu.Body>
         </ChartTitleMenu>
     );
-};
+});
 
 export default connect(({ chartTitle: c, chart, state }) => ({
     chartId           : state.chartId,

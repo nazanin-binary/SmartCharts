@@ -26,7 +26,7 @@ export const RenderDefaultControls = ({ isMobile }) => (
     </>
 );
 
-const ChartControls = ({
+const ChartControls = React.memo(({
     isMobile,
     hasOpenMenu,
     widgets,
@@ -39,7 +39,7 @@ const ChartControls = ({
             { context ? <Controls isMobile={isMobile} /> : null }
         </div>
     );
-};
+});
 
 export default connect(({ chart,
     chartType,

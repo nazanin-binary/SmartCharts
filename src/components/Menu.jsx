@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 import { CloseIcon } from './Icons.jsx';
 
-class Menu extends Component {
+class Menu extends PureComponent {
     onOverlayClick = (e) => {
         if (e.target.className === 'cq-menu-overlay') {
             this.props.setOpen(false);

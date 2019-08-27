@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from '../store/Connect';
 import '../../sass/components/_timeperiod.scss';
 
-const Timeperiod = ({
+const Timeperiod = React.memo(({
     chartId,
     enabled,
     interval,
@@ -126,7 +126,7 @@ const Timeperiod = ({
             </TimePeriodMenu.Body>
         </TimePeriodMenu>
     );
-};
+});
 
 export default connect(({ timeperiod: s, state }) => ({
     chartId         : state.chartId,

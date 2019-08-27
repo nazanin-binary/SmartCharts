@@ -3,7 +3,7 @@ import { connect } from '../store/Connect';
 import NotificationBadge from './NotificationBadge.jsx';
 import { ComparisonIcon } from './Icons.jsx';
 
-const Comparison = ({
+const Comparison = React.memo(({
     ComparisonSelector,
     ComparisonMenu,
     menuOpen,
@@ -27,7 +27,7 @@ const Comparison = ({
             <ComparisonSelector searchInputClassName={searchInputClassName} />
         </ComparisonMenu.Body>
     </ComparisonMenu>
-);
+));
 
 export default connect(({ comparison: c, chart }) => ({
     ComparisonSelector: c.ComparisonSelector,

@@ -12,7 +12,7 @@ import {
 } from './Icons.jsx';
 import '../../sass/components/_view.scss';
 
-const ViewItem = ({
+const ViewItem = React.memo(({
     view,
     remove,
     onClick,
@@ -21,9 +21,9 @@ const ViewItem = ({
         <span className="ciq-list-item-text">{view.name}</span>
         <DeleteIcon onClick={remove} />
     </div>
-);
+));
 
-const Views = ({
+const Views = React.memo(({
     ViewsMenu,
     menuOpen,
     views,
@@ -116,7 +116,7 @@ const Views = ({
             </div>
         </ViewsMenu.Body>
     </ViewsMenu>
-);
+));
 
 export default connect(({ view: s }) => ({
     ViewsMenu: s.ViewsMenu,

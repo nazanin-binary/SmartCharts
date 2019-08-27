@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NotificationBadge = ({
+const NotificationBadge = React.memo(({
     notificationCount,
 }) => {
     if (!notificationCount) return null;
@@ -10,6 +10,6 @@ const NotificationBadge = ({
             {notificationCount}
         </span>
     );
-};
+});
 
 export default NotificationBadge;

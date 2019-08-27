@@ -20,7 +20,7 @@ const ComparisonListItem = ({
     </div>
 );
 
-const ComparisonList = ({
+const ComparisonList = React.memo(({
     comparisonSymbols,
     animatedPrices,
     onDeleteItem,
@@ -35,7 +35,7 @@ const ComparisonList = ({
             />
         ))}
     </div>
-);
+));
 
 export default connect(({ comparisonList: c }) => ({
     comparisonSymbols: c.comparisonSymbols,

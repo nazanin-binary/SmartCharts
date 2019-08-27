@@ -1,7 +1,7 @@
 import React  from 'react';
 import '../../sass/components/_ciq-dialog.scss';
 
-const Dialog = ({
+const Dialog = React.memo(({
     open,
     children,
     onContainerClick,
@@ -13,6 +13,6 @@ const Dialog = ({
     >
         {children}
     </div>
-);
+));
 
 export default Dialog;
