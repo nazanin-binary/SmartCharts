@@ -6,7 +6,7 @@ import { CloseIcon } from './Icons.jsx';
 class Menu extends PureComponent {
     onOverlayClick = (e) => {
         if (e.target.className === 'cq-menu-overlay') {
-            this.props.setOpen(false);
+            this.props.closeSelf();
         }
     };
 

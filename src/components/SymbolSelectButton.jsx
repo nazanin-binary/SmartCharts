@@ -2,7 +2,7 @@ import React from 'react';
 import { ItemIconMap, SymbolPlaceholderIcon, ArrowIcon, TimeIcon } from './Icons.jsx';
 import { MarketOpeningTimeCounter } from './MarketOpeningTimeCounter.jsx';
 
-export const SymbolInfo = ({
+export const SymbolInfo = React.memo(({
     symbol,
     ChartPrice,
     isSymbolOpen,
@@ -21,8 +21,8 @@ export const SymbolInfo = ({
             </div>
         </>
     );
-};
-export const SymbolSelectButton = ({
+});
+export const SymbolSelectButton = React.memo(({
     symbol,
     ChartPrice,
     isSymbolOpen,
@@ -35,7 +35,7 @@ export const SymbolSelectButton = ({
         }
         <ArrowIcon className="cq-symbol-dropdown" />
     </div>
-);
+));
 export const ChartPrice = ({
     isVisible,
     status,

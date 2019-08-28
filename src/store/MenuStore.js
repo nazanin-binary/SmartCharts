@@ -54,6 +54,10 @@ export default class MenuStore {
         this.setOpen(!this.open);
     }
 
+    @action.bound closeSelf() {
+        this.setOpen(false);
+    }
+
     connect = connect(({ chart: c }) => ({
         setOpen: this.setOpen,
         open: this.open,

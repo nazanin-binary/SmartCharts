@@ -202,6 +202,7 @@ export default connect(({ chartSetting: s, chart: c }) => ({
     assetInformation            : s.assetInformation,
     ChartSettingMenu            : s.ChartSettingMenu,
     closeMenu                   : s.menu.onTitleClick,
+    closeSelf                   : s.menu.closeSelf,
     countdown                   : s.countdown,
     historical                  : s.historical,
     isMobile                    : c.isMobile,

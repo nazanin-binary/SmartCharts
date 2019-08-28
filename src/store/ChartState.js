@@ -1,5 +1,5 @@
 /* eslint-disable no-new */
-import { action, observable, when } from 'mobx';
+import { action, observable, when, computed } from 'mobx';
 import { createObjectFromLocalStorage, calculateTimeUnitInterval, calculateGranularity, getUTCDate, getUTCEpoch } from '../utils';
 import Theme from '../../sass/_themes.scss';
 
@@ -10,7 +10,6 @@ class ChartState {
     @observable startEpochMargin;
     @observable endEpoch;
     @observable endEpochMargin;
-    @observable symbol;
     @observable isConnectionOpened;
     @observable isChartReady = false;
     @observable chartStatusListener;
@@ -36,6 +35,8 @@ class ChartState {
     get chartTypeStore() { return this.mainStore.chartType; }
     get timeperiodStore() { return this.mainStore.timeperiod; }
     get loader() { return this.mainStore.loader; }
+
+    @computed get symbol() { return this.mainStore.chart.currentActiveSymbol; }
 
     constructor(mainStore) {
         this.mainStore = mainStore;
@@ -99,7 +100,7 @@ class ChartState {
         }
 
         if (symbol !== this.symbol) {
-            this.symbol = symbol;
+            this.mainStore.chart.changeSymbol(symbol);
             isSymbolChanged = true;
 
             if (this.mainStore.chart && this.mainStore.chart.feed && scrollToEpoch) {
