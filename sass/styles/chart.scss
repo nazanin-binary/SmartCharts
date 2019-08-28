@@ -507,6 +507,21 @@ html, body {
 .stx_line_chart { /* Default width for line Charts */
     width: 1px;
     border-top-style: dotted;
+
+    @include themify($themes) {
+        color: themed('ChartLineBorder');
+    }
+}
+
+.stx_line_even,
+.stx_bar_even,
+.stx_candle_even,
+.stx_candle_shadow_even,
+.stx_hollow_candle_even,
+.stx_baseline_even {
+    @include themify($themes) {
+        color: themed('ChartLineBorder');
+    }
 }
 
 .stx_bar_chart, .stx_bar_up, .stx_bar_down, .stx_bar_even { /* Default width for bar Charts */
@@ -514,18 +529,22 @@ html, body {
 }
 
 /* Default color for line and bar Charts */
-.stx_line_chart, .stx_bar_chart {
+.stx_bar_chart {
     @include themify($themes) {
         color: themed('DefaultBorder');
     }
 }
 
 .stx_bar_down { /* Down Bar color */
-    color: $chart-red;
+    @include themify($themes) {
+        color: themed('ChartRed');
+    }
 }
 
 .stx_bar_up { /* Up Bar color */
-    color: $chart-green;
+    @include themify($themes) {
+        color: themed('ChartGreen');
+    }
 }
 
 .stx_baseline_delta_mountain { /* Default color for baseline delta mountain Charts */
@@ -544,21 +563,25 @@ html, body {
 .stx_mountain_chart { /* Default color for mountain Charts */
     width: 1px; /* Optional line width */
     @include themify($themes) {
-        border: themed('ChartMountainBorder');
+        border: themed('ChartLineBorder');
         background-color: themed('ChartMountainBg'); /* Optional gradient */
         color: themed('ChartMountainBgShade'); /* background color for mountain */
     }
 }
 
 .stx_histogram_down { /* Down Bar color */
-    color: $chart-red;
+    @include themify($themes) {
+        color: themed('ChartRed');
+    }
     @include themify($themes) {
         border-left-color: themed('ChartBorder');
     }
 }
 
 .stx_histogram_up { /* Up Bar color */
-    color: $chart-green;
+    @include themify($themes) {
+        color: themed('ChartGreen');
+    }
     @include themify($themes) {
         border-left-color: themed('ChartBorder');
     }
@@ -576,10 +599,6 @@ html, body {
     width: 3px;
 }
 
-.stx_candle_shadow, .stx_bar_even { /* Candle wick color */
-    color: #2e383b;
-}
-
 /******* Optionally use .stx_candle_shadow_up and .stx_candle_shadow_down to change shadow/wick color for up/down candles
  .stx_candle_shadow_up {
 	color:$chart-green;
@@ -589,26 +608,42 @@ html, body {
 }
 ********/
 
+.stx_candle_shadow_up {
+    @include themify($themes) {
+        color: themed('ChartGreen');
+    }
+}
+
+.stx_candle_shadow_down {
+    @include themify($themes) {
+        color: themed('ChartRed');
+    }
+}
+
 .stx_candle_down, .stx_line_down { /* Down Candle color */
-    color: $chart-red;
     border-left-color: transparent;
+    @include themify($themes) {
+        color: themed('ChartRed');
+    }
 }
 
 .stx_candle_up, .stx_line_up { /* Up Candle color */
-    color: $chart-green;
     border-left-color: transparent;
+    @include themify($themes) {
+        color: themed('ChartGreen');
+    }
 }
 
 .stx_hollow_candle_down {
-    color: $chart-red;
+    @include themify($themes) {
+        color: themed('ChartRed');
+    }
 }
 
 .stx_hollow_candle_up {
-    color: $chart-green;
-}
-
-.stx_hollow_candle_even {
-    color: #888888;
+    @include themify($themes) {
+        color: themed('ChartGreen');
+    }
 }
 
 .stx_baseline { /* color of baseline (dashed horizontal line) */
@@ -616,46 +651,62 @@ html, body {
 }
 
 .stx_baseline_down { /* under area color */
-    color: $chart-red;
+    @include themify($themes) {
+        color: themed('ChartRed');
+    }
     width: 2px;
 }
 
 .stx_baseline_up { /* over area color */
-    color: $chart-green;
+    @include themify($themes) {
+        color: themed('ChartGreen');
+    }
     width: 2px;
 }
 
 .stx_kagi_down { /* Kagi chart width and color for downtrend */
-    color: $chart-red;
+    @include themify($themes) {
+        color: themed('ChartRed');
+    }
     width: 1px;
 }
 
 .stx_kagi_up { /* Kagi chart width and color for uptrend */
-    color: $chart-green;
+    @include themify($themes) {
+        color: themed('ChartGreen');
+    }
     width: 3px;
 }
 
 .stx_pandf_down { /* P&F chart color, padding, width for downtrend */
-    color: $chart-red;
+    @include themify($themes) {
+        color: themed('ChartRed');
+    }
     padding: 2px 0px;
     width: 2px;
 }
 
 .stx_pandf_up { /* P&F chart color, padding, width for uptrend */
-    color: $chart-green;
+    @include themify($themes) {
+        color: themed('ChartGreen');
+    }
     padding: 2px 0px;
     width: 2px;
 }
 
 .stx_volume_up { /* Up Volume color */
-    color: $chart-green; /* legacy only. Use study library output "Up Volume" instead */
+    @include themify($themes) {
+        color: themed('ChartGreen');
+    } /* legacy only. Use study library output "Up Volume" instead */
     @include themify($themes) {
         border: themed('ChartBorder');
     }
 }
 
 .stx_volume_down { /* Down volume color */
-    color: $chart-red; /* legacy only. Use study library output "Down Volume" instead */
+    @include themify($themes) {
+        color: themed('ChartRed');
+    } /* legacy only. Use study library output "Down Volume" instead */
     @include themify($themes) {
         border: themed('ChartBorder');
     }

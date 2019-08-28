@@ -29,13 +29,18 @@ $COLOR_LIGHT_BLACK_3_SOLID_2: #b3b3b3;
 $COLOR_LIGHT_BLACK_4: rgba($COLOR_BLACK, 0.04);
 $COLOR_LIGHT_BLACK_4_SOLID: #f4f4f6;
 
+$COLOR_CLOSED_DEF: rgba(129, 133, 152, 0.35);
+$COLOR_GREEN: #4caf50;
+$COLOR_RED: #f95454;
+
 //Legacy Colours. TODO: Check with design team, replace and remove these colours
-$COLOR_YELLOW       : #fef1cf;
+$COLOR_YELLOW      : #fef1cf;
 $COLOR_LIGHT_BLACK : #5c5c5c;
 $COLOR_BRANDBLUE_40: #aaacba;
 $COLOR_BRANDBLUE_95: #353b5b;
 $COLOR_BRANDBLUE_85: #4a4f6c;
 $COLOR_BRANDBLUE_75: #60647e;
+
 $COLOR_DARK_BLUE_8 : rgba(127, 131, 151, 0.3);
 
 $themes: (
@@ -56,6 +61,9 @@ $themes: (
         ChartGrid: $COLOR_LIGHT_BLACK_4,
         ChartIndicateText: $COLOR_LIGHT_GRAY,
         ChartIndicateDivide: $COLOR_LIGHT_GRAY,
+        ChartLineBorder: COLOR_LIGHT_GRAY_1,
+        ChartLineBg: rgba(153, 156, 172, 0.16),
+        ChartLineShade :rgba(255, 255, 255, 0),
         ChartMountainBorder: $COLOR_LIGHT_GRAY_1,
         ChartMountainBg: rgba(153, 156, 172, 0.16),
         ChartMountainBgShade: rgba(255, 255, 255, 0),
@@ -242,7 +250,9 @@ $themes: (
         HighestLowestMarkerLabelText: $COLOR_LIGHT_BLACK_1,
         HighestSpotColor: $COLOR_GREEN_1,
         LowestSpotColor: $COLOR_RED,
-        ChartBackgroundOpacity: 0.05
+        ChartBackgroundOpacity: 0.05,
+        ChartGreen: $COLOR_GREEN,
+        ChartRed: $COLOR_RED,
     ),
     dark: (
         DefaultMain:            $COLOR_DARK_BLUE_5,
@@ -261,6 +271,9 @@ $themes: (
         ChartGrid: $COLOR_DARK_BLUE_3,
         ChartIndicateText: $COLOR_WHITE,
         ChartIndicateDivide: $COLOR_DARK_GRAY_3,
+        ChartLineBorder: rgba($COLOR_WHITE, 1),
+        ChartLineBg: rgba(255, 255, 255, 0.36),
+        ChartLineShade :rgba(16, 19, 32, 0),
         ChartMountainBorder: rgba($COLOR_WHITE, 1),
         ChartMountainBg: rgba(255, 255, 255, 0.36),
         ChartMountainBgShade: rgba(16, 19, 32, 0),
@@ -446,7 +459,27 @@ $themes: (
         HighestLowestMarkerLabelText: $COLOR_WHITE,
         HighestSpotColor: $COLOR_GREEN_1,
         LowestSpotColor: $COLOR_RED,
-        ChartBackgroundOpacity: 0.4
+        ChartBackgroundOpacity: 0.4,
+        ChartGreen: $COLOR_GREEN,
+        ChartRed: $COLOR_RED,
+    ),
+    'dark-closed': (
+        ChartLineBorder: $COLOR_CLOSED_DEF,
+        ChartLineBg: rgba(255, 255, 255, 0.36),
+        ChartLineShade: rgba(16, 19, 32, 0),
+        ChartGreen: $COLOR_CLOSED_DEF,
+        ChartRed: $COLOR_CLOSED_DEF,
+        ChartCandleText: $COLOR_WHITE,
+        ChartCandleBg: $COLOR_DARK_GRAY_2,
+    ),
+    'light-closed': (
+        ChartLineBorder: $COLOR_CLOSED_DEF,
+        ChartLineBg: rgba(153, 156, 172, 0.16),
+        ChartLineShade: rgba(255, 255, 255, 0),
+        ChartGreen: $COLOR_CLOSED_DEF,
+        ChartRed: $COLOR_CLOSED_DEF,
+        ChartCandleText: $COLOR_LIGHT_BLACK_3,
+        ChartCandleBg: $COLOR_LIGHT_BLACK_3_SOLID_1,
     ),
 );
 
@@ -471,20 +504,6 @@ $themes: (
 :export {
     light_chart_grid: map-get(map-get($themes, 'light'), 'ChartGrid');
     dark_chart_grid: map-get(map-get($themes, 'dark'), 'ChartGrid');
-    light_chart_mountain_border: map-get(map-get($themes, 'light'), 'ChartMountainBorder');
-    dark_chart_mountain_border: map-get(map-get($themes, 'dark'), 'ChartMountainBorder');
-    light_chart_mountain_bg: map-get(map-get($themes, 'light'), 'ChartMountainBg');
-    dark_chart_mountain_bg: map-get(map-get($themes, 'dark'), 'ChartMountainBg');
-    light_chart_mountain_bg_shade: map-get(map-get($themes, 'light'), 'ChartMountainBgShade');
-    dark_chart_mountain_bg_shade: map-get(map-get($themes, 'dark'), 'ChartMountainBgShade');
-    light_candle_text_closed: map-get(map-get($themes, 'light'), 'ChartCandleTextClosed');
-    dark_candle_text_closed: map-get(map-get($themes, 'dark'), 'ChartCandleTextClosed');
-    light_candle_bg_closed: map-get(map-get($themes, 'light'), 'ChartCandleBgClosed');
-    dark_candle_bg_closed: map-get(map-get($themes, 'dark'), 'ChartCandleBgClosed');
-    light_chart_closed_candle: map-get(map-get($themes, 'light'), 'ChartClosedCandleColor');
-    dark_chart_closed_candle: map-get(map-get($themes, 'dark'), 'ChartClosedCandleColor');
     light_chart_bg: map-get(map-get($themes, 'light'), 'ChartBg');
     dark_chart_bg: map-get(map-get($themes, 'dark'), 'ChartBg');
-    light_float_labels_bg: map-get(map-get($themes, 'light'), 'CrosshairLabel');
-    dark_float_labels_bg: map-get(map-get($themes, 'dark'), 'CrosshairLabel');
 }

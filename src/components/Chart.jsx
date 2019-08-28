@@ -86,9 +86,10 @@ class Chart extends Component {
         const BottomWidgets = !bottomWidgets && showLastDigitStats ? LastDigitStats : bottomWidgets;
         // if there are any markers, then increase the subholder z-index
         const HasMarkers = children && children.length ? 'smartcharts--has-markers' : '';
+        const closedTheme = isChartClosed ? `smartcharts-${theme}-closed` : '';
 
         return (
-            <div className={`smartcharts smartcharts-${theme} ${enabledNavigationWidget ? 'smartcharts--navigation-widget' : ''} ${HasMarkers} ${contextWidth}`}>
+            <div className={`smartcharts smartcharts-${theme} ${closedTheme} ${enabledNavigationWidget ? 'smartcharts--navigation-widget' : ''} ${HasMarkers} ${contextWidth}`}>
                 <div
                     className={`smartcharts-${isMobile ? 'mobile' : 'desktop'}`}
                     ref={this.modalNode}
