@@ -531,7 +531,7 @@ html, body {
 /* Default color for line and bar Charts */
 .stx_bar_chart {
     @include themify($themes) {
-        color: themed('DefaultBorder');
+        color: themed('ChartLineBorder');
     }
 }
 
