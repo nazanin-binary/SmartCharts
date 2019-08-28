@@ -13,7 +13,7 @@ import { DeleteIcon } from './Icons.jsx';
 import Favorite from './Favorite.jsx';
 import '../../sass/components/_ciq-settings-dialog.scss';
 
-const SettingsPanel = ({
+const SettingsPanel = React.memo(({
     items,
     onItemChange,
 }) => {
@@ -102,9 +102,9 @@ const SettingsPanel = ({
             }
         </div>
     );
-};
+});
 
-const ResetButton = ({
+const ResetButton = React.memo(({
     onResetClick,
 }) => (
     <div
@@ -112,9 +112,9 @@ const ResetButton = ({
         onClick={onResetClick}
     >{t.translate('RESET')}
     </div>
-);
+));
 
-const DoneButton = ({
+const DoneButton = React.memo(({
     setOpen,
 }) => (
     <div
@@ -122,9 +122,9 @@ const DoneButton = ({
         onClick={() => setOpen(false)}
     >{t.translate('DONE')}
     </div>
-);
+));
 
-const Tabs = ({
+const Tabs = React.memo(({
     onTabClick,
     activeTab,
 }) => (
@@ -141,9 +141,9 @@ const Tabs = ({
         </div>
         <div className={`active-border ${activeTab === 'settings' ? 'first' : 'second'}`} />
     </div>
-);
+));
 
-const SettingsDialog = ({
+const SettingsDialog = React.memo(({
     id,
     items, // [{ id, title, value, defaultValue, type }]
     title,
@@ -210,6 +210,6 @@ const SettingsDialog = ({
             </>
         </Dialog>
     </div>
-);
+));
 
 export default SettingsDialog;
