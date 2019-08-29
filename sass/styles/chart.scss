@@ -514,13 +514,16 @@ html, body {
 }
 
 .stx_line_even,
-.stx_bar_even,
-.stx_candle_even,
-.stx_candle_shadow_even,
-.stx_hollow_candle_even,
 .stx_baseline_even {
     @include themify($themes) {
         color: themed('ChartLineBorder');
+    }
+}
+
+.stx_candle_even,
+.stx_hollow_candle_even {
+    @include themify($themes) {
+        color: themed('ChartCandleEvenColor');
     }
 }
 
@@ -537,13 +540,19 @@ html, body {
 
 .stx_bar_down { /* Down Bar color */
     @include themify($themes) {
-        color: themed('ChartRed');
+        color: themed('ChartDownLine');
     }
 }
 
 .stx_bar_up { /* Up Bar color */
     @include themify($themes) {
-        color: themed('ChartGreen');
+        color: themed('ChartUpLine');
+    }
+}
+
+.stx_bar_even {
+    @include themify($themes) {
+        color: themed('ChartEvenLine');
     }
 }
 
@@ -564,14 +573,14 @@ html, body {
     width: 1px; /* Optional line width */
     @include themify($themes) {
         border: themed('ChartLineBorder');
-        background-color: themed('ChartMountainBg'); /* Optional gradient */
-        color: themed('ChartMountainBgShade'); /* background color for mountain */
+        background-color: themed('ChartLineBg'); /* Optional gradient */
+        color: themed('ChartLineShade'); /* background color for mountain */
     }
 }
 
 .stx_histogram_down { /* Down Bar color */
     @include themify($themes) {
-        color: themed('ChartRed');
+        color: themed('ChartDownLine');
     }
     @include themify($themes) {
         border-left-color: themed('ChartBorder');
@@ -580,7 +589,7 @@ html, body {
 
 .stx_histogram_up { /* Up Bar color */
     @include themify($themes) {
-        color: themed('ChartGreen');
+        color: themed('ChartUpLine');
     }
     @include themify($themes) {
         border-left-color: themed('ChartBorder');
@@ -608,41 +617,35 @@ html, body {
 }
 ********/
 
-.stx_candle_shadow_up {
+.stx_candle_shadow_up, .stx_candle_shadow_even, .stx_candle_shadow_down {
     @include themify($themes) {
-        color: themed('ChartGreen');
-    }
-}
-
-.stx_candle_shadow_down {
-    @include themify($themes) {
-        color: themed('ChartRed');
+        color: themed('ChartCandleShadowColor');
     }
 }
 
 .stx_candle_down, .stx_line_down { /* Down Candle color */
     border-left-color: transparent;
     @include themify($themes) {
-        color: themed('ChartRed');
+        color: themed('ChartCandleDownColor');
     }
 }
 
 .stx_candle_up, .stx_line_up { /* Up Candle color */
     border-left-color: transparent;
     @include themify($themes) {
-        color: themed('ChartGreen');
+        color: themed('ChartCandleUpColor');
     }
 }
 
 .stx_hollow_candle_down {
     @include themify($themes) {
-        color: themed('ChartRed');
+        color: themed('ChartCandleDownColor');
     }
 }
 
 .stx_hollow_candle_up {
     @include themify($themes) {
-        color: themed('ChartGreen');
+        color: themed('ChartCandleUpColor');
     }
 }
 
@@ -652,35 +655,35 @@ html, body {
 
 .stx_baseline_down { /* under area color */
     @include themify($themes) {
-        color: themed('ChartRed');
+        color: themed('ChartDownLine');
     }
     width: 2px;
 }
 
 .stx_baseline_up { /* over area color */
     @include themify($themes) {
-        color: themed('ChartGreen');
+        color: themed('ChartUpLine');
     }
     width: 2px;
 }
 
 .stx_kagi_down { /* Kagi chart width and color for downtrend */
     @include themify($themes) {
-        color: themed('ChartRed');
+        color: themed('ChartDownLine');
     }
     width: 1px;
 }
 
 .stx_kagi_up { /* Kagi chart width and color for uptrend */
     @include themify($themes) {
-        color: themed('ChartGreen');
+        color: themed('ChartUpLine');
     }
     width: 3px;
 }
 
 .stx_pandf_down { /* P&F chart color, padding, width for downtrend */
     @include themify($themes) {
-        color: themed('ChartRed');
+        color: themed('ChartDownLine');
     }
     padding: 2px 0px;
     width: 2px;
@@ -688,7 +691,7 @@ html, body {
 
 .stx_pandf_up { /* P&F chart color, padding, width for uptrend */
     @include themify($themes) {
-        color: themed('ChartGreen');
+        color: themed('ChartUpLine');
     }
     padding: 2px 0px;
     width: 2px;
@@ -696,7 +699,7 @@ html, body {
 
 .stx_volume_up { /* Up Volume color */
     @include themify($themes) {
-        color: themed('ChartGreen');
+        color: themed('ChartUpLine');
     } /* legacy only. Use study library output "Up Volume" instead */
     @include themify($themes) {
         border: themed('ChartBorder');
@@ -705,7 +708,7 @@ html, body {
 
 .stx_volume_down { /* Down volume color */
     @include themify($themes) {
-        color: themed('ChartRed');
+        color: themed('ChartDownLine');
     } /* legacy only. Use study library output "Down Volume" instead */
     @include themify($themes) {
         border: themed('ChartBorder');

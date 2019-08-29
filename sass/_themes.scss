@@ -17,6 +17,7 @@ $COLOR_DARK_BLUE_5  : #2a3052; /* Brand Blue */
 $COLOR_DARK_GRAY_1  : #282a37;
 $COLOR_DARK_GRAY_2  : #303342;
 $COLOR_DARK_GRAY_3  : #555975;
+$COLOR_DARK_GRAY_4  : #2e383b;
 $COLOR_LIGHT_GRAY   : #7f8397;
 $COLOR_LIGHT_GRAY_30: rgba($COLOR_LIGHT_GRAY, 0.3);
 $COLOR_LIGHT_GRAY_1 : #999cac;
@@ -56,17 +57,17 @@ $dark: (
     ChartCandleBg: $COLOR_ORANGE,
     ChartCandleBgClosed: $COLOR_DARK_GRAY_2,
     ChartCandleText: $COLOR_WHITE,
-    ChartCandleTextClosed: $COLOR_LIGHT_GRAY_30,
     ChartGrid: $COLOR_DARK_BLUE_3,
     ChartIndicateText: $COLOR_WHITE,
     ChartIndicateDivide: $COLOR_DARK_GRAY_3,
+    ChartCandleUpColor: $COLOR_GREEN,
+    ChartCandleDownColor: $COLOR_RED,
+    ChartCandleEvenColor: rgba($COLOR_WHITE, 1),
+    ChartCandleShadowColor: $COLOR_DARK_GRAY_4,
+    ChartEvenLine: $COLOR_DARK_GRAY_4,
     ChartLineBorder: rgba($COLOR_WHITE, 1),
     ChartLineBg: rgba(255, 255, 255, 0.36),
     ChartLineShade :rgba(16, 19, 32, 0),
-    ChartMountainBorder: rgba($COLOR_WHITE, 1),
-    ChartMountainBg: rgba(255, 255, 255, 0.36),
-    ChartMountainBgShade: rgba(16, 19, 32, 0),
-    ChartClosedCandleColor: $COLOR_DARK_GRAY_2,
     MenuBg: $COLOR_DARK_BLUE_2,
     MenuBorder: $COLOR_DARK_BLUE_5,
     MenuIcon: $COLOR_LIGHT_GRAY,
@@ -253,16 +254,6 @@ $dark: (
     ChartDownLine: $COLOR_RED
 );
 
-$dark-closed: (
-    ChartLineBorder: $COLOR_CLOSED_DEF,
-    ChartLineBg: rgba(255, 255, 255, 0.36),
-    ChartLineShade: rgba(16, 19, 32, 0),
-    ChartUpLine: $COLOR_CLOSED_DEF,
-    ChartDownLine: $COLOR_CLOSED_DEF,
-    ChartCandleText: $COLOR_WHITE,
-    ChartCandleBg: $COLOR_DARK_GRAY_2,
-);
-
 $light: (
     DefaultMain: $COLOR_WHITE,
     DefaultBg:  $COLOR_WHITE,
@@ -276,17 +267,17 @@ $light: (
     ChartCandleBg: $COLOR_ORANGE,
     ChartCandleBgClosed: $COLOR_LIGHT_BLACK_3_SOLID_1,
     ChartCandleText: $COLOR_WHITE,
-    ChartCandleTextClosed: $COLOR_LIGHT_BLACK_3,
     ChartGrid: $COLOR_LIGHT_BLACK_4,
     ChartIndicateText: $COLOR_LIGHT_GRAY,
     ChartIndicateDivide: $COLOR_LIGHT_GRAY,
+    ChartCandleUpColor: $COLOR_GREEN,
+    ChartCandleDownColor: $COLOR_RED,
+    ChartCandleEvenColor: $COLOR_LIGHT_GRAY_1,
+    ChartCandleShadowColor: $COLOR_DARK_GRAY_4,
+    ChartEvenLine: $COLOR_DARK_GRAY_4,
     ChartLineBorder: $COLOR_LIGHT_GRAY_1,
     ChartLineBg: rgba(153, 156, 172, 0.16),
     ChartLineShade :rgba(255, 255, 255, 0),
-    ChartMountainBorder: $COLOR_LIGHT_GRAY_1,
-    ChartMountainBg: rgba(153, 156, 172, 0.16),
-    ChartMountainBgShade: rgba(255, 255, 255, 0),
-    ChartClosedCandleColor: $COLOR_LIGHT_BLACK_3_SOLID_1,
     MenuBg: $COLOR_WHITE,
     MenuIcon: $COLOR_LIGHT_BLACK_1,
     MenuText: $COLOR_LIGHT_BLACK_1,
@@ -474,12 +465,32 @@ $light: (
     ChartDownLine: $COLOR_RED
 );
 
+$dark-closed: (
+    ChartLineBorder: $COLOR_CLOSED_DEF,
+    ChartLineBg: rgba(255, 255, 255, 0.36),
+    ChartLineShade: rgba(16, 19, 32, 0),
+    ChartCandleUpColor: $COLOR_DARK_GRAY_2,
+    ChartCandleDownColor: $COLOR_DARK_GRAY_2,
+    ChartCandleEvenColor: $COLOR_DARK_GRAY_2,
+    ChartCandleShadowColor: $COLOR_DARK_GRAY_2,
+    ChartUpLine: $COLOR_CLOSED_DEF,
+    ChartDownLine: $COLOR_CLOSED_DEF,
+    ChartEvenLine: $COLOR_CLOSED_DEF,
+    ChartCandleText: $COLOR_LIGHT_GRAY_30,
+    ChartCandleBg: $COLOR_DARK_GRAY_2,
+);
+
 $light-closed: (
     ChartLineBorder: $COLOR_CLOSED_DEF,
     ChartLineBg: rgba(153, 156, 172, 0.16),
     ChartLineShade: rgba(255, 255, 255, 0),
+    ChartCandleUpColor: $COLOR_LIGHT_BLACK_3_SOLID_1,
+    ChartCandleDownColor: $COLOR_LIGHT_BLACK_3_SOLID_1,
+    ChartCandleEvenColor: $COLOR_LIGHT_BLACK_3_SOLID_1,
+    ChartCandleShadowColor: $COLOR_LIGHT_BLACK_3_SOLID_1,
     ChartUpLine: $COLOR_CLOSED_DEF,
     ChartDownLine: $COLOR_CLOSED_DEF,
+    ChartEvenLine: $COLOR_CLOSED_DEF,
     ChartCandleText: $COLOR_LIGHT_BLACK_3,
     ChartCandleBg: $COLOR_LIGHT_BLACK_3_SOLID_1,
 );
